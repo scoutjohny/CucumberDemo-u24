@@ -41,7 +41,8 @@ Feature: Login
     And I enter valid password "secret_sauce2"
     And I click on the login button
     Then I should get an error message "Epic sadface: Username and password do not match any user in this service"
-  @new
+
+
   Scenario Outline: Login with a invalid credentials
   As a user I shouldn't be able to log in using invalid credentials
 
@@ -52,10 +53,10 @@ Feature: Login
     Then I should get an error message "<errorMessage>"
 
     Examples:
-      | username       | password     | errorMessage                                                              |
-      | standard_user2 | secret_sauce | Epic sadface: Username and password do not match any user in this service |
-      | standard_user2 | secret_sauce | Epic sadface: Username and password do not match any user in this service |
-      | standard_user2 | secret_sauce | Epic sadface: Username and password do not match any user in this service |
-      |                | secret_sauce | Epic sadface: Username is required                                        |
-      | standard_user  |              | Epic sadface: Password is required                                        |
-      |                |              | Epic sadface: Username is required                                        |
+      | username       | password      | errorMessage                                                              |
+      | standard_user2 | secret_sauce  | Epic sadface: Username and password do not match any user in this service |
+      | standard_user  | secret_sauce2 | Epic sadface: Username and password do not match any user in this service |
+      | standard_user2 | secret_sauce  | Epic sadface: Username and password do not match any user in this service |
+      |                | secret_sauce  | Epic sadface: Username is required                                        |
+      | standard_user  |               | Epic sadface: Password is required                                        |
+      |                |               | Epic sadface: Username is required                                        |
